@@ -24,4 +24,4 @@ app.get("/students", async (req, res) => {
   res.json(await Student.find());
 });
 
-app.listen(3000, () => console.log("Backend running"));
+app.listen(3000, () => console.log("Backend running on 3000"));
