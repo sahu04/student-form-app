@@ -30,25 +30,19 @@
 function saveStudent(e) {
   e.preventDefault();
 
-  fetch("http://backend:3000/students", {
+  fetch("/api/students", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      studentId: document.getElementById("studentId").value,
-      name: document.getElementById("name").value,
-      age: document.getElementById("age").value,
-      class: document.getElementById("className").value
+      studentId: studentId.value,
+      name: name.value,
+      age: age.value,
+      class: className.value
     })
   })
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("msg").innerText = data.message;
-  })
-  .catch(() => {
-    document.getElementById("msg").innerText = "Error saving student";
-  });
+  .then(r => r.json())
+  .then(d => msg.innerText = d.message)
+  .catch(() => msg.innerText = "Error saving student");
 }
 </script>
 
